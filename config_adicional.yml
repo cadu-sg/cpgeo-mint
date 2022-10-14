@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  connection: local
+  become: yes
+  tasks:
+  - name: Reparar hfscrspstm — link simbólico do python2.5
+    ansible.builtin.apt:
+      update_cache: yes
+      cache_valid_time: 3600
+
+  - name: Editar o arquivo de configuração do servidor ssh /etc/sshd_config
+    ansible.builtin.copy:
+      src: files/sshd_config
+      dest: /etc/sshd_config
+
+  - name: Recarregar o serviço ssh
+    ansible.builtin.systemd:
+      name: ssh.service
+      state: reloaded

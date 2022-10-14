@@ -1,0 +1,24 @@
+1     -nosuid    filer2:/disco/cpgeo_database
+2     -nosuid    filer7:/disco2/cpgeo_database2
+3     -nosuid    filer7:/disco2/cpgeo_database3
+4     -nosuid    filer2:/disco/cpgeo_database4
+7     -nosuid    filer7:/disco1/cpgeo_database7
+8     -nosuid    filer7:/disco2/cpgeo_database8
+9     -nosuid    sm1:/disco1/cpgeo_database9
+10    -nosuid    sm1:/disco2/cpgeo_database10
+11    -nosuid    sm2:/disco1/cpgeo_database11
+13    -nosuid    sm2:/disco2/cpgeo_database13
+14    -nosuid    sm2:/disco2/cpgeo_database14
+15    -nosuid    sm2:/disco2/cpgeo_database15
+16    -nosuid    pod1:/disco1/lvm1
+17    -nosuid    pod2:/disco1/db17
+18    -nosuid    pod1:/disco2/db18
+19    -nosuid    pod1:/disco3/db19
+20    -nosuid    pod2:/disco3/db20
+# Backups
+# -------
+16_bkp    -nosuid    pod2:/disco1/lvm1/dia.0
+17_bkp    -nosuid    pod1:/disco1/db17/dia.0
+18_bkp    -nosuid    pod2:/disco2/db18/dia.0
+19_bkp    -nosuid    pod2:/disco3/db19/dia.0
+20_bkp    -nosuid    pod1:/disco3/db20/dia.0

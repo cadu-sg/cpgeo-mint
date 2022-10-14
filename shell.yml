@@ -1,0 +1,51 @@
+---
+- name: Configurar shell
+  vars:
+    user: cpgeo
+    home: /home/cpgeo
+  hosts: localhost
+  connection: local
+  become: yes
+  tasks:
+  - name: Instalar zsh
+    ansible.builtin.apt:
+      name: zsh
+      update_cache: yes
+      cache_valid_time: 3600
+
+  - name: Instalar fzf
+    ansible.builtin.apt:
+      name: fzf
+
+  - name: Installar LSDeluxe
+    ansible.builtin.apt:
+      deb: https://github.com/Peltoche/lsd/releases/download/0.21.0/lsd_0.21.0_amd64.deb
+
+  - name: Instalar antigen
+    ansible.builtin.get_url:
+      url: https://git.io/antigen
+      dest: "{{ home }}/antigen.zsh"
+      owner: "{{ user }}"
+      group: "{{ user }}"
+      mode: '644'
+
+  - name: Copiar arquivo de configuração do zsh
+    ansible.builtin.copy:
+      src: files/zshrc
+      dest: "{{ home }}/.zshrc"
+      owner: "{{ user }}"
+      group: "{{ user }}"
+      mode: '644'
+
+  - name: Alterar o shell do usuário
+    ansible.builtin.user:
+      name: "{{ user }}"
+      shell: /usr/bin/zsh
+
+  - name: Copiar arquivo de configuração do Powerlevel10k
+    ansible.builtin.copy:
+      src: files/p10k.zsh
+      dest: "{{ home }}/.p10k.zsh"
+      owner: "{{ user }}"
+      group: "{{ user }}"
+      mode: '644'

@@ -1,0 +1,44 @@
+---
+- name: Configurar cliente NIS
+  hosts: localhost
+  connection: local
+  become: yes
+  tasks:
+  - name: Instalar nis
+    ansible.builtin.apt:
+      name: nis
+      update_cache: yes
+      cache_valid_time: 3600
+
+  - name: Editar o arquivo de configuração /etc/yp.conf
+    ansible.builtin.copy:
+      src: files/yp.conf
+      dest: /etc/yp.conf
+
+  - name: Definir o nome de domínio NIS no arquivo de configuração /etc/defaultdomain
+    ansible.builtin.copy:
+      src: files/defaultdomain
+      dest: /etc/defaultdomain
+
+  - name: Editar o arquivo de configuração /etc/nsswitch.conf
+    ansible.builtin.copy:
+      src: files/nsswitch.conf
+      dest: /etc/nsswitch.conf
+
+  - name: Reiniciar e ativar o serviço nscd
+    ansible.builtin.systemd:
+      name: nscd
+      enabled: yes
+      state: restarted
+
+  - name: Reiniciar e ativar o serviço rpcbind
+    ansible.builtin.systemd:
+      name: rpcbind
+      enabled: yes
+      state: restarted
+
+  - name: Reiniciar e ativar o serviço ypbind
+    ansible.builtin.systemd:
+      name: ypbind
+      enabled: yes
+      state: restarted
