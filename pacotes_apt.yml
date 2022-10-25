@@ -4,11 +4,6 @@
   connection: local
   become: yes
   tasks:
-  - name: Adicionar repositório Neovim
-    ansible.builtin.apt_repository:
-      repo: ppa:neovim-ppa/stable
-    ignore_errors: yes
-
   - name: Atualizar lista de pacotes (apt-get update)
     ansible.builtin.apt:
       update_cache: yes
