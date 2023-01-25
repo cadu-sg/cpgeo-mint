@@ -2,14 +2,14 @@
 - name: Configurar cliente NFS
   hosts: localhost
   connection: local
-  become: yes
+  become: true
   tasks:
   - name: Instalar autofs e nfs-common
     ansible.builtin.apt:
       name: 
       - autofs
       - nfs-common
-      state: latest
+      state: present
 
   - name: Criar o diretório /cpgeo_database para ponto de montagem
     ansible.builtin.file:
@@ -25,16 +25,19 @@
     ansible.builtin.copy:
       src: files/auto.master
       dest: /etc/auto.master
+      mode: 0644
 
   - name: Criar o arquivo de configuração /etc/auto.cpgeo_database
     ansible.builtin.copy:
       src: files/auto.cpgeo_database
       dest: /etc/auto.cpgeo_database
+      mode: 0644
 
   - name: Criar o arquivo de configuração /etc/auto.dados
     ansible.builtin.copy:
       src: files/auto.dados
       dest: /etc/auto.dados
+      mode: 0644
 
   - name: Reiniciar o serviço autofs
     ansible.builtin.systemd:
@@ -46,18 +49,18 @@
       src: /dados/ftp
       dest: /ftp
       state: link
-      force: yes
+      force: true
 
   - name: Criar link simbólico /nis apontando para /dados/nis
     ansible.builtin.file:
       src: /dados/nis
       dest: /nis
       state: link
-      force: yes
-      
+      force: true
+
   - name: Criar link simbólico /seismic apontando para /dados/seismic
     ansible.builtin.file:
       src: /dados/nis/seismic
       dest: /seismic
       state: link
-      force: yes
+      force: true

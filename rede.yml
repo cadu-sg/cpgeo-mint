@@ -2,29 +2,30 @@
 - name: Configurar rede
   hosts: localhost
   connection: local
-  become: yes
+  become: true
   tasks:
 
   - name: Desativar NetworkManager
     ansible.builtin.systemd:
       name: NetworkManager
-      enabled: no
+      enabled: false
   - name: Desativar NetworkManager-wait-online
     ansible.builtin.systemd:
       name: NetworkManager-wait-online
-      enabled: no
+      enabled: false
   - name: Desativar NetworkManager-dispatcher
     ansible.builtin.systemd:
       name: NetworkManager-dispatcher
-      enabled: no
+      enabled: false
 
   - name: Copiar arquivo de configuração de rede para /etc/systemd/network/
     ansible.builtin.template:
       src: templates/static.network.j2
       dest: /etc/systemd/network/static.network
+      mode: 0644
 
   - name: Ativar e reiniciar systemd-networkd
     ansible.builtin.systemd:
       name: systemd-networkd
-      enabled: yes
+      enabled: true
       state: restarted
