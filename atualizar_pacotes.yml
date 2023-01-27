@@ -1,13 +1,14 @@
 ---
-- hosts: localhost
+- name: Atualizar pacotes
+  hosts: localhost
   connection: local
-  become: yes
+  become: true
   tasks:
-  - name: Atualizar lista de pacotes (apt-get update)
-    ansible.builtin.apt:
-      update_cache: yes
-      cache_valid_time: 3600
+    - name: Atualizar lista de pacotes (apt-get update)
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 3600
 
-  - name: Atualizar pacotes instalados (aptitude full-upgrade)
-    ansible.builtin.apt:
-      upgrade: full
+    - name: Atualizar pacotes instalados (aptitude full-upgrade)
+      ansible.builtin.apt:
+        upgrade: full
