@@ -2,7 +2,6 @@
 - name: Atualizar pacotes
   hosts: localhost
   connection: local
-  become: true
   tasks:
     - name: Atualizar lista de pacotes (apt-get update)
       ansible.builtin.apt:
