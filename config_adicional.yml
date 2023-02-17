@@ -14,7 +14,7 @@
         dest: /etc/sshd_config
         mode: 0644
 
-    - name: Recarregar o serviço ssh
+    - name: Recarregar serviço ssh
       ansible.builtin.systemd:
-        name: ssh.service
+        name: ssh
         state: reloaded
