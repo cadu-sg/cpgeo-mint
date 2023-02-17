@@ -2,7 +2,6 @@
 - name: Instalar pacotes apt úteis
   hosts: localhost
   connection: local
-  become: true
   tasks:
     - name: Atualizar lista de pacotes (apt-get update)
       ansible.builtin.apt:
@@ -34,6 +33,6 @@
       ansible.builtin.apt:
         deb: https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
 
-    - name: Importar lista de tasks
+    - name: Instalar JDK 19
       ansible.builtin.import_tasks:
         file: tasks/jdk_19.yml
