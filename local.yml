@@ -1,5 +1,4 @@
 ---
-- import_playbook: atualizar_pacotes.yml
 - import_playbook: rede.yml
 - import_playbook: cliente_nfs.yml
 - import_playbook: cliente_nis.yml
