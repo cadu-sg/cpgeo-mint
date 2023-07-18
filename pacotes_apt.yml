@@ -12,6 +12,8 @@
         name:
           - build-essential
           - curl
+          - exa
+          - fzf
           - gedit
           - gnumeric
           - htop
@@ -32,7 +34,3 @@
     - name: Instalar Visual Studio Code
       ansible.builtin.apt:
         deb: https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
-
-    - name: Instalar JDK 19
-      ansible.builtin.import_tasks:
-        file: tasks/jdk_19.yml

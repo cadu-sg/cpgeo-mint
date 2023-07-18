@@ -1,11 +1,4 @@
 ---
-- name: Instalar autofs e nfs-common
-  ansible.builtin.apt:
-    name:
-      - autofs
-      - nfs-common
-    state: present
-
 - name: Copiar arquivo de configuração /etc/master
   ansible.builtin.copy:
     src: files/auto.master

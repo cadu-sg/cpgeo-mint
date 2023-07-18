@@ -24,8 +24,7 @@
         dest: /etc/systemd/network/static.network
         mode: 0644
 
-    - name: Reinicar e ativar systemd-networkd
+    - name: Ativar systemd-networkd
       ansible.builtin.systemd:
         name: systemd-networkd
-        state: restarted
         enabled: true

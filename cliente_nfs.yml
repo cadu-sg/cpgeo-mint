@@ -3,6 +3,8 @@
   hosts: localhost
   connection: local
   tasks:
-    - name: Configurar cliente NFS
-      ansible.builtin.import_tasks:
-        file: tasks/cliente_nfs.yml
+    - ansible.builtin.import_tasks:
+        file: tasks/nfs_instalar.yml
+
+    - ansible.builtin.import_tasks:
+        file: tasks/nfs_atualizar.yml
