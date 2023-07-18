@@ -21,7 +21,6 @@
           - neovim
           - openssh-client
           - openssh-server
-          - python2
           - ssh
           - tmux
           - xterm
