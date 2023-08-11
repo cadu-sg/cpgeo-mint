@@ -13,7 +13,7 @@
 13    -nosuid    filer4:/volume1/database13
 14    -nosuid    pod1:/disco1/db14/database14
 15    -nosuid    filer5:/volume1/database15
-16    -nosuid    pod1:/disco1/lvm1
+16    -nosuid    pod1:/disco1/db16
 17    -nosuid    pod2:/disco1/db17
 18    -nosuid    pod1:/disco2/db18
 19    -nosuid    pod1:/disco3/database19
@@ -30,7 +30,7 @@
 #14_bkp    -nosuid    filer6:/disco2_backup_database14/dia.0
 #15_bkp    -nosuid    cpgeo27/volume1/backup_database15/dia.0
 #16_bkp    -nosuid    pod2:/disco1/lvm1/dia.0
-#17_bkp    -nosuid    pod1:/disco1/db17/dia.0
+#17_bkp    -nosuid    pod1:/disco1/bkp_db17/dia.0
 #18_bkp    -nosuid    pod2:/disco2/db18/dia.0
 #19_bkp    -nosuid    pod2:/disco3/bkp_db19/dia.0
 #20_bkp    -nosuid    pod1:/disco3/backup_database20/dia.0
