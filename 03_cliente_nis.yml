@@ -11,19 +11,19 @@
 
     - name: Editar o arquivo de configuração /etc/yp.conf
       ansible.builtin.copy:
-        src: files/yp.conf
+        src: nis/files/yp.conf
         dest: /etc/yp.conf
         mode: "0644"
 
     - name: Definir o nome de domínio NIS no arquivo de configuração /etc/defaultdomain
       ansible.builtin.copy:
-        src: files/defaultdomain
+        src: nis/files/defaultdomain
         dest: /etc/defaultdomain
         mode: "0644"
 
     - name: Editar o arquivo de configuração /etc/nsswitch.conf
       ansible.builtin.copy:
-        src: files/nsswitch.conf
+        src: nis/files/nsswitch.conf
         dest: /etc/nsswitch.conf
         mode: "0644"
 

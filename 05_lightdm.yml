@@ -6,5 +6,5 @@
   tasks:
     - name: Copiar arquivo de configuração adicional para /etc/lightdm/lighdm.conf.d/
       ansible.builtin.copy:
-        src: files/50-show-manual-login.conf
+        src: lightdm/files/50-show-manual-login.conf
         dest: /etc/lightdm/lightdm.conf.d/50-show-manual-login.conf

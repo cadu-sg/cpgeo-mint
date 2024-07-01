@@ -1,5 +1,5 @@
 ---
-- name: Instalar pacotes apt úteis
+- name: Instalar pacotes apt essenciais
   hosts: localhost
   connection: local
   tasks:
@@ -18,12 +18,14 @@
           - gedit
           - gnumeric
           - htop
-          - nscd
           - neovim
+          - nscd
           - openssh-client
           - openssh-server
           - pkg-config
           - parallel
+          - pipx
+          - python2
           - ssh
           - tmux
           - xterm

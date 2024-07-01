@@ -1,7 +1,7 @@
 ---
-- import_playbook: rede.yml
-- import_playbook: cliente_nfs.yml
-- import_playbook: cliente_nis.yml
-- import_playbook: pacotes_apt.yml
-- import_playbook: lightdm.yml
-- import_playbook: servidor_ssh.yml
+- import_playbook: 01_rede.yml
+- import_playbook: 02_cliente_nfs.yml
+- import_playbook: 03_cliente_nis.yml
+- import_playbook: 04_pacotes_apt.yml
+- import_playbook: 05_lightdm.yml
+# - import_playbook: 06_servidor_ssh.yml
