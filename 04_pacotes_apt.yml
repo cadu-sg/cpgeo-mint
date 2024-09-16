@@ -24,7 +24,6 @@
           - pkg-config
           - parallel
           - pipx
-          - python2
           - ssh
           - tmux
           - xterm
