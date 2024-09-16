@@ -13,7 +13,6 @@
           - build-essential
           - cmake
           - curl
-          - exa
           - fzf
           - gedit
           - gnumeric
